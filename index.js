@@ -9,7 +9,8 @@ var Config = require('./lib/config'),
 var defaults = {
   prefix: '',
   arraySeparator: null,
-  defaults: {}
+  defaults: {},
+  addAdditionalFields: true
 };
 
 module.exports = function (config) {
@@ -22,6 +23,8 @@ module.exports = function (config) {
   conf.prefix = (config && config.prefix) ? config.prefix : defaults.prefix;
   conf.arraySeparator = (config && config.arraySeparator) ? config.arraySeparator : defaults.arraySeparator;
   conf.defaults = (config && config.defaults) ? config.defaults : defaults.defaults;
+  conf.addAdditionalFields = (config && (typeof config.addAdditionalFields !== undefined) &&
+  (config.addAdditionalFields != null)) ? config.addAdditionalFields : defaults.addAdditionalFields;
 
   // Namespace (prefix) for config env variables
   prefixCC = changeCase.constantCase(conf.prefix);
@@ -57,10 +60,13 @@ module.exports = function (config) {
           value = process.env[env];
         }
       }
-      configuration.extend(hierarchy, value);
+      if (conf.addAdditionalFields) {
+        configuration.extend(hierarchy, value);
+      } else {
+        configuration.init(hierarchy, value);
+      }
     }
   }
-
   return configuration.conf;
 
 };
