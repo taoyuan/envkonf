@@ -21,7 +21,7 @@
   "author": "Yuan Tao",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ecunado/node-env-configuration/issues"
+    "url": "https://github.com/taoyuan/envkonf/issues"
   },
   "devDependencies": {
     "chai": "^3.5.0",
