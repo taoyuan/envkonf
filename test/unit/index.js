@@ -7,13 +7,13 @@ var fixtures = require('./index.fixtures'),
 
 describe('Read configuration from environment', function () {
 
-  var nodeenvconfiguration;
+  var envkonf;
 
   describe('Application 1', function () {
 
     beforeEach(function (done) {
-      nodeenvconfiguration = rewire('./../../index');
-      nodeenvconfiguration.__set__({
+      envkonf = rewire('./../../index');
+      envkonf.__set__({
         process: {
           env: fixtures.fixture1
         }
@@ -22,7 +22,7 @@ describe('Read configuration from environment', function () {
     });
 
     it('should retrieve configuration for app1 from environment', function (done) {
-      var configApp1 = nodeenvconfiguration({
+      var configApp1 = envkonf({
         prefix: 'app1'
       });
       // type checking
@@ -36,8 +36,8 @@ describe('Read configuration from environment', function () {
   describe('Application 2', function () {
 
     beforeEach(function (done) {
-      nodeenvconfiguration = rewire('./../../index');
-      nodeenvconfiguration.__set__({
+      envkonf = rewire('./../../index');
+      envkonf.__set__({
         process: {
           env: fixtures.fixture2
         }
@@ -46,7 +46,7 @@ describe('Read configuration from environment', function () {
     });
 
     it('should retrieve configuration for app2 from environment', function (done) {
-      var configApp2 = nodeenvconfiguration({
+      var configApp2 = envkonf({
         prefix: 'app2'
       });
       // type checking
@@ -60,8 +60,8 @@ describe('Read configuration from environment', function () {
   describe('Application 3', function () {
 
     beforeEach(function (done) {
-      nodeenvconfiguration = rewire('./../../index');
-      nodeenvconfiguration.__set__({
+      envkonf = rewire('./../../index');
+      envkonf.__set__({
         process: {
           env: fixtures.fixture3
         }
@@ -70,7 +70,7 @@ describe('Read configuration from environment', function () {
     });
 
     it('should retrieve configuration for app3 from environment', function (done) {
-      var configApp3 = nodeenvconfiguration({
+      var configApp3 = envkonf({
         prefix: 'app3'
       });
       // type checking
@@ -88,8 +88,8 @@ describe('Read configuration from environment', function () {
     allConf = _.merge(allConf, fixtures.config2, fixtures.config3);
 
     beforeEach(function (done) {
-      nodeenvconfiguration = rewire('./../../index');
-      nodeenvconfiguration.__set__({
+      envkonf = rewire('./../../index');
+      envkonf.__set__({
         process: {
           env: allEnv
         }
@@ -98,7 +98,7 @@ describe('Read configuration from environment', function () {
     });
 
     it('should retrieve configuration for app1 from environment', function (done) {
-      var configApp1 = nodeenvconfiguration({
+      var configApp1 = envkonf({
         prefix: 'app1'
       });
       // type checking
@@ -109,7 +109,7 @@ describe('Read configuration from environment', function () {
     });
 
     it('should retrieve configuration for app2 from environment', function (done) {
-      var configApp2 = nodeenvconfiguration({
+      var configApp2 = envkonf({
         prefix: 'app2'
       });
       // type checking
@@ -120,7 +120,7 @@ describe('Read configuration from environment', function () {
     });
 
     it('should retrieve configuration for app3 from environment', function (done) {
-      var configApp3 = nodeenvconfiguration({
+      var configApp3 = envkonf({
         prefix: 'app3'
       });
       // type checking
@@ -137,8 +137,8 @@ describe('Read configuration from environment', function () {
     describe('Application 1', function () {
 
       beforeEach(function (done) {
-        nodeenvconfiguration = rewire('./../../index');
-        nodeenvconfiguration.__set__({
+        envkonf = rewire('./../../index');
+        envkonf.__set__({
           process: {
             env: fixtures.fixture1
           }
@@ -154,7 +154,7 @@ describe('Read configuration from environment', function () {
             var51: false
           }
         };
-        var configApp1 = nodeenvconfiguration({
+        var configApp1 = envkonf({
           prefix: 'app1',
           defaults: existing
         });
@@ -171,8 +171,8 @@ describe('Read configuration from environment', function () {
     describe('Application 3', function () {
 
       beforeEach(function (done) {
-        nodeenvconfiguration = rewire('./../../index');
-        nodeenvconfiguration.__set__({
+        envkonf = rewire('./../../index');
+        envkonf.__set__({
           process: {
             env: fixtures.fixture3
           }
@@ -188,7 +188,7 @@ describe('Read configuration from environment', function () {
             var51: false
           }
         };
-        var configApp3 = nodeenvconfiguration({
+        var configApp3 = envkonf({
           prefix: 'app3',
           defaults: existing
         });
@@ -210,8 +210,8 @@ describe('Read configuration from environment', function () {
     allEnv = _.merge(allEnv, fixtures.fixture2, fixtures.fixture3);
 
     beforeEach(function (done) {
-      nodeenvconfiguration = rewire('./../../index');
-      nodeenvconfiguration.__set__({
+      envkonf = rewire('./../../index');
+      envkonf.__set__({
         process: {
           env: allEnv
         }
@@ -220,7 +220,7 @@ describe('Read configuration from environment', function () {
     });
 
     it('should retrieve all apps configuration', function (done) {
-      var config = nodeenvconfiguration();
+      var config = envkonf();
       expect(config).to.deep.equal(fixtures.all);
       done();
     });
@@ -230,8 +230,8 @@ describe('Read configuration from environment', function () {
   describe('Get array environment variables', function () {
 
     beforeEach(function (done) {
-      nodeenvconfiguration = rewire('./../../index');
-      nodeenvconfiguration.__set__({
+      envkonf = rewire('./../../index');
+      envkonf.__set__({
         process: {
           env: fixtures.arrayFixture
         }
@@ -241,7 +241,7 @@ describe('Read configuration from environment', function () {
 
     it('should retrieve configuration with arrays from environment', function (done) {
 
-      var configArr = nodeenvconfiguration({
+      var configArr = envkonf({
         prefix: 'apparr',
         arraySeparator: ','
       });

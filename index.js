@@ -6,14 +6,13 @@
 const Config = require('./lib/config'),
   changeCase = require('change-case');
 
-const defaults = {
-  prefix: '',
-  arraySeparator: null,
-  defaults: {},
-  addAdditionalFields: true
-};
-
 module.exports = function (config) {
+  const defaults = {
+    prefix: '',
+    arraySeparator: null,
+    defaults: {},
+    addAdditionalFields: true
+  };
 
   let i, prefixCC, env, value, configuration, hierarchy = [];
 
