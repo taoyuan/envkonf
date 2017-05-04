@@ -1,6 +1,6 @@
 {
   "name": "envkonf",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A node.js module that helps with loading of hierarchical configuration from environment variables as suggested by twelve factor methodology",
   "main": "index.js",
   "scripts": {
