@@ -84,7 +84,7 @@ exports.all = {
 };
 
 exports.arrayFixture = {
-  APPARR_ARR1: 'true, false, true',
+  apparr_ARR1: 'true, false, true',
   APPARR_VAR2: 'var 2 value',
   APPARR_OBJ1_VAR1: 'Obj1 var 1 value',
   APPARR_OBJ1_VAR2: 'Obj1 var 2 value',

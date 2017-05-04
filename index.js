@@ -3,10 +3,10 @@
 /*jshint -W030 */
 "use strict";
 
-var Config = require('./lib/config'),
+const Config = require('./lib/config'),
   changeCase = require('change-case');
 
-var defaults = {
+const defaults = {
   prefix: '',
   arraySeparator: null,
   defaults: {},
@@ -15,16 +15,16 @@ var defaults = {
 
 module.exports = function (config) {
 
-  var i, prefixCC, env, value, configuration, hierarchy = [];
+  let i, prefixCC, env, value, configuration, hierarchy = [];
 
-  var conf = {};
+  const conf = {};
 
   // Extend defaults with user configuration
   conf.prefix = (config && config.prefix) ? config.prefix : defaults.prefix;
   conf.arraySeparator = (config && config.arraySeparator) ? config.arraySeparator : defaults.arraySeparator;
   conf.defaults = (config && config.defaults) ? config.defaults : defaults.defaults;
-  conf.addAdditionalFields = (config && (typeof config.addAdditionalFields !== undefined) &&
-  (config.addAdditionalFields != null)) ? config.addAdditionalFields : defaults.addAdditionalFields;
+  conf.addAdditionalFields = (config && (typeof config.addAdditionalFields !== 'undefined') &&
+  (config.addAdditionalFields !== null)) ? config.addAdditionalFields : defaults.addAdditionalFields;
 
   // Namespace (prefix) for config env variables
   prefixCC = changeCase.constantCase(conf.prefix);
@@ -33,9 +33,10 @@ module.exports = function (config) {
   // Iterate over env vars
   for (env in process.env) {
     // if env is in app namespace
-    if (env.indexOf(prefixCC) === 0) {
-      // split each var using separator
-      hierarchy = env.replace(prefixCC !== '' ? prefixCC + '_' : prefixCC, '').split('_');
+    if (changeCase.constantCase(env).indexOf(prefixCC) === 0) {
+      const prefixLen = prefixCC.length;
+      // split each const using separator
+      hierarchy = env.substr(prefixLen ? prefixLen + 1 : 0).split('_');
 
       // Array property ?
       if (conf.arraySeparator && process.env[env].indexOf(conf.arraySeparator) !== -1) {
