@@ -1,6 +1,6 @@
 {
   "name": "envkonf",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A node.js module that helps with loading of hierarchical configuration from environment variables as suggested by twelve factor methodology",
   "main": "index.js",
   "scripts": {
@@ -25,11 +25,11 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "lodash": "^4.6.1",
-    "mocha": "~2.4.5",
-    "rewire": "^2.5.1"
+    "lodash": "^4.17.4",
+    "mocha": "~3.3.0",
+    "rewire": "^2.5.2"
   },
   "dependencies": {
-    "change-case": "~1.0.6"
+    "change-case": "~3.0.1"
   }
 }
