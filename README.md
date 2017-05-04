@@ -1,3 +1,5 @@
+# envkonf
+
 Description
 ===========
 node-env-configuration is a node.js module that helps with loading configuration as suggested by twelve factor methodology www.12factor.net:
@@ -10,7 +12,7 @@ In a twelve-factor app, env vars are granular controls, each fully orthogonal to
 Suppose you have this json default configuration for your node application:
 
 ```javascript
-var defaultConfiguration = {
+var defaults = {
   http_port: 8000,
   https_port: 8001,
   mongodb: {
@@ -38,9 +40,9 @@ API_APP_MONGODB_PASSWORD='secret password';
 In your code your can override **defaultConfiguration** object with these environment variables:
 
 ```javascript
-var nodeenvconfiguration = require('node-env-configuration');
-var config = nodeenvconfiguration({
-  defaults: defaultConfiguration,
+var envkonf = require('envkonf');
+var config = envkonf({
+  defaults: defaults,
   prefix: 'apiApp' // Read only env vars starting with API_APP prefix
 });
 ```
@@ -66,6 +68,9 @@ Name  | Default Value | Description
 ```bash
 $ npm test
 ```
+
+# Creds
+[Ezequiel Cuñado](https://github.com/whynotsoluciones)
 
 # License
 

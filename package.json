@@ -1,5 +1,5 @@
 {
-  "name": "envconfig-alpha",
+  "name": "envkonf",
   "version": "1.0.4",
   "description": "A node.js module that helps with loading of hierarchical configuration from environment variables as suggested by twelve factor methodology",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ecunado/node-env-configuration.git"
+    "url": "https://github.com/taoyuan/envkonf.git"
   },
   "keywords": [
     "node",
@@ -18,7 +18,7 @@
     "env",
     "environment"
   ],
-  "author": "Ezequiel Cuñado",
+  "author": "Yuan Tao",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ecunado/node-env-configuration/issues"
